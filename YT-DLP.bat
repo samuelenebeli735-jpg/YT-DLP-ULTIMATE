@@ -34,6 +34,7 @@ set "CONFIG=%ROOT%config.ini"
 
 set "CONFIG_MODULE=%CORE%\config.bat"
 set "DIAGNOSTICS_MODULE=%CORE%\diagnostics.bat"
+set "LOGGER_MODULE=%CORE%\logger.bat"
 
 set "MENU_MODULE=%UI%\menu.bat"
 set "BANNER_MODULE=%UI%\banner.bat"

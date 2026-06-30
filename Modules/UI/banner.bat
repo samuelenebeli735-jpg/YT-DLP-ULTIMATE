@@ -1,17 +1,18 @@
 @echo off
 
-:: ==========================================
-:: Banner Module
-:: ==========================================
-
-if exist "%ASSETS%\banner.txt" (
-    type "%ASSETS%\banner.txt"
-) else (
-    echo ==========================================
-    echo            YT-DLP ULTIMATE
-    echo ==========================================
-)
-
+echo ===============================================================
+echo                 YT-DLP ULTIMATE TOOLKIT
+echo ===============================================================
 echo.
-
+echo  Version           : %VERSION%
+echo  Theme             : %THEME%
+echo  Language          : %LANGUAGE%
+echo  Default Quality   : %DEFAULT_QUALITY%p
+echo.
+echo  Download Folder
+echo  ------------------------------------------------------------
+echo  %DOWNLOAD_FOLDER%
+echo.
+echo ===============================================================
+echo.
 exit /b

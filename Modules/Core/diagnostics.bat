@@ -1,85 +1,105 @@
 @echo off
+
+:: ==========================================
+:: Diagnostics Module
+:: ==========================================
+
 cls
 
 echo ==========================================
-echo        Running System Diagnostics
+echo         STARTUP DIAGNOSTICS
 echo ==========================================
 echo.
 
 :: ------------------------------------------
-:: Check yt-dlp
+:: yt-dlp
 :: ------------------------------------------
 
-where yt-dlp >nul 2>&1
+where yt-dlp >nul 2>nul
 
-if %errorlevel%==0 (
-    echo [PASS] yt-dlp found.
+if %ERRORLEVEL% EQU 0 (
+    echo [✓] yt-dlp..............Installed
 ) else (
-    echo [FAIL] yt-dlp not found.
-    echo.
-    echo Please install yt-dlp before continuing.
-    pause
-    exit /b 1
+    echo [X] yt-dlp..............Missing
 )
 
 :: ------------------------------------------
-:: Check FFmpeg
+:: FFmpeg
 :: ------------------------------------------
 
-where ffmpeg >nul 2>&1
+where ffmpeg >nul 2>nul
 
-if %errorlevel%==0 (
-    echo [PASS] FFmpeg found.
+if %ERRORLEVEL% EQU 0 (
+    echo [✓] FFmpeg..............Installed
 ) else (
-    echo [FAIL] FFmpeg not found.
-    echo.
-    echo Please install FFmpeg before continuing.
-    pause
-    exit /b 1
+    echo [X] FFmpeg..............Missing
 )
 
 :: ------------------------------------------
-:: Check Downloads Folder
+:: Config
+:: ------------------------------------------
+
+if exist "%CONFIG%" (
+    echo [✓] Config..............Loaded
+) else (
+    echo [X] Config..............Missing
+)
+
+:: ------------------------------------------
+:: Downloads
 :: ------------------------------------------
 
 if exist "%DOWNLOADS%" (
-    echo [PASS] Downloads folder found.
+    echo [✓] Downloads Folder....Ready
 ) else (
-    echo [FAIL] Downloads folder missing.
-    mkdir "%DOWNLOADS%"
-    echo [INFO] Downloads folder created.
+    echo [X] Downloads Folder....Missing
 )
 
 :: ------------------------------------------
-:: Check Logs Folder
+:: Logs
 :: ------------------------------------------
 
 if exist "%LOGS%" (
-    echo [PASS] Logs folder found.
+    echo [✓] Logs Folder.........Ready
 ) else (
-    echo [FAIL] Logs folder missing.
-    mkdir "%LOGS%"
-    echo [INFO] Logs folder created.
+    echo [X] Logs Folder.........Missing
 )
 
 :: ------------------------------------------
-:: Check Temp Folder
+:: Temp
 :: ------------------------------------------
 
 if exist "%TEMP%" (
-    echo [PASS] Temp folder found.
+    echo [✓] Temp Folder.........Ready
 ) else (
-    echo [FAIL] Temp folder missing.
-    mkdir "%TEMP%"
-    echo [INFO] Temp folder created.
+    echo [X] Temp Folder.........Missing
+)
+
+:: ------------------------------------------
+:: Banner Module
+:: ------------------------------------------
+
+if exist "%BANNER_MODULE%" (
+    echo [✓] Banner Module.......Loaded
+) else (
+    echo [X] Banner Module.......Missing
+)
+
+:: ------------------------------------------
+:: Menu Module
+:: ------------------------------------------
+
+if exist "%MENU_MODULE%" (
+    echo [✓] Menu Module.........Loaded
+) else (
+    echo [X] Menu Module.........Missing
 )
 
 echo.
 echo ==========================================
-echo Diagnostics Complete
+echo Diagnostics Completed
 echo ==========================================
-echo.
 
 timeout /t 2 >nul
 
-exit /b 0
+exit /b
