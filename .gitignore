@@ -1,0 +1,21 @@
+# Downloaded media
+Downloads/
+
+# Logs
+Logs/
+
+# Temporary files
+Temp/
+
+# Cookies
+cookies.txt
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Visual Studio Code
+.vscode/
+
+# Log files
+*.log
