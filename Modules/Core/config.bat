@@ -1,5 +1,7 @@
 @echo off
-goto :LoadConfig
+
+if "%~1"==":SaveConfig" goto SaveConfig
+goto LoadConfig
 
 :: ==========================================
 :: CONFIG MODULE
