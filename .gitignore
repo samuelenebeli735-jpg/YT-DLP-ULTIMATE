@@ -4,7 +4,7 @@ Downloads/
 # Logs
 Logs/
 
-# Temporary files
+# Temporary file
 Temp/
 
 # Cookies
@@ -19,3 +19,6 @@ Desktop.ini
 
 # Log files
 *.log
+
+#Assets
+Assets/
